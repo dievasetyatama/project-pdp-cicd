@@ -29,9 +29,9 @@ workflows:
       - hold:
           type: approval
           filters:
-          branches:
-            only:
-              - beta
+            branches:
+              only:
+                - beta
       - build:
           requires:
             - hold
