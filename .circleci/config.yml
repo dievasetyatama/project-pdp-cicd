@@ -27,8 +27,6 @@ jobs:
     steps:
       - checkout
       - run: echo "Build started on `date`"
-      - node/install-packages:
-          check-cache: detect # try using yarn.lock
       - run: yarn run build
 
 # Invoke jobs via workflows
