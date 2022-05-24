@@ -20,6 +20,7 @@ jobs:
       - run: echo "Build started on `date`"
       - run: yarn run build
       - run: yarn run test
+
   test:
     steps:
       - run: yarn run test
@@ -40,4 +41,4 @@ workflows:
             - hold
       - test:
           requires:
-            - hold
+            - build
