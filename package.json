@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
@@ -16,6 +17,7 @@
     "remark-html": "^15.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1"
+    "@types/jest": "^27.5.1",
+    "jest": "^24.8.0"
   }
 }
