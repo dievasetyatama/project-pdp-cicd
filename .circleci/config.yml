@@ -12,9 +12,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Build started on `date`"
-      - run: yarn run build
-      - node/install-packages:
-          check-cache: detect
+      - run: yarn install && yarn build
       - run: yarn run test
 
 workflows:
