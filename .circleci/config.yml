@@ -35,6 +35,3 @@ workflows:
       - build:
           requires:
             - hold
-      - test:
-          requires:
-            - build
