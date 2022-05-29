@@ -6,23 +6,15 @@ orbs:
   node: circleci/node@5.0.2
 
 jobs:
-  build:
+  build-test-deploy:
     docker:
       - image: "cimg/node:16.15.0"
     steps:
       - checkout
       - run: echo "Build started on `date`"
       - run: yarn install && yarn build
-  test:
-    docker:
-      - image: "cimg/node:16.15.0"
-    steps:
       - run: echo "Test started on `date`"
       - run: yarn test
-  deploy:
-    docker:
-      - image: "cimg/node:16.15.0"
-    steps:
       - run: echo "Deploy started on `date`"
       - run: yarn start
 workflows:
@@ -34,12 +26,6 @@ workflows:
             branches:
               only:
                 - beta
-      - build:
+      - build-test-deploy:
           requires:
             - need_approval
-      - test:
-          requires:
-            - build
-      - deploy:
-          requires:
-            - test
