@@ -13,12 +13,23 @@ jobs:
       - checkout
       - run: echo "Build started on `date`"
       - run: yarn install && yarn build
-      - run: yarn run test
-
+  test:
+    docker:
+      - image: "cimg/node:16.15.0"
+    steps:
+      - checkout
+      - run: echo "Test started on `date`"
+      - run: yarn test
+  deploy:
+    docker:
+      - image: "cimg/node:16.15.0"
+    steps:
+      - run: echo "Deploy started on `date`"
+      - run: yarn start
 workflows:
-  build:
+  deploy-branch-beta:
     jobs:
-      - hold:
+      - need_approval:
           type: approval
           filters:
             branches:
@@ -26,4 +37,10 @@ workflows:
                 - beta
       - build:
           requires:
-            - hold
+            - need_approval
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
