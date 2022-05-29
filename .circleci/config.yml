@@ -14,15 +14,10 @@ jobs:
       - run: echo "Build started on `date`"
       - run: yarn install && yarn build
   test:
-    docker:
-      - image: "cimg/node:16.15.0"
     steps:
-      - checkout
       - run: echo "Test started on `date`"
       - run: yarn test
   deploy:
-    docker:
-      - image: "cimg/node:16.15.0"
     steps:
       - run: echo "Deploy started on `date`"
       - run: yarn start
