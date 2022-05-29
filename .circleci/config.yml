@@ -11,12 +11,14 @@ jobs:
       - image: "cimg/node:16.15.0"
     steps:
       - checkout
-      - run: echo "Build started on `date`"
-      - run: yarn install && yarn build
-      - run: echo "Test started on `date`"
-      - run: yarn test
+      - name: Build
+        run: echo "Build started on `date`"
+        run: yarn install && yarn build
+      - name: Test
+        run: echo "Test started on `date`"
+        run: yarn test
 workflows:
-  deploy-branch-beta:
+  build-branch-beta:
     jobs:
       - need_approval:
           type: approval
