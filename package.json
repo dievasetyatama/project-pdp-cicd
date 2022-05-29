@@ -1,13 +1,18 @@
 {
+  "name": "project-pdp-cicd-diev",
+  "author": "Dieva Setyatama",
+  "homepage": "https://dievasetyatama.github.io/project-pdp-cicd/",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "watch-server": "next"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
+    "gh-pages": "^4.0.0",
     "gray-matter": "^4.0.2",
     "next": "^12.1.6",
     "react": "^17.0.2",
