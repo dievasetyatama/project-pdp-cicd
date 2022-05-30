@@ -1,7 +1,7 @@
 {
   "name": "project-pdp-cicd-diev",
   "author": "Dieva Setyatama",
-  "homepage": "https://dievasetyatama.github.io/project-pdp-cicd/",
+  "homepage": "https://pdp.amurotama.com",
   "private": true,
   "scripts": {
     "dev": "next dev",
