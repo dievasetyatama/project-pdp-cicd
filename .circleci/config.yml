@@ -16,7 +16,7 @@ jobs:
       - run: echo "Test started on `date`"
       - run: yarn test
 workflows:
-  deploy-branch-beta:
+  build-branch-beta:
     jobs:
       - need_approval:
           type: approval
