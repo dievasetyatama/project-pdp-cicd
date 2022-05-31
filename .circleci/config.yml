@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: echo "Build started on `date`"
       - run: yarn install && yarn build
+      - run: yarn export && git add out/ && git commit -m \"Deploy to beta\" && git subtree push --prefix out origin beta
       - run: echo "Test started on `date`"
       - run: yarn test
 workflows:
