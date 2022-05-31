@@ -14,7 +14,7 @@ module.exports = withPlugins([
     },
   ],
   {
-    basePath: "/project-pdp-cicd",
-    assetPrefix: "/project-pdp-cicd/",
+    basePath: "https://pdp.amurotama.com",
+    assetPrefix: "https://pdp.amurotama.com/",
   },
 ]);
