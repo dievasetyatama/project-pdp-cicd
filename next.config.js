@@ -10,11 +10,10 @@ module.exports = withPlugins([
         strip: true,
         verbose: true,
       },
-      imagesPublicPath: "/project-pdp-cicd/_next/static/images/",
+      imagesPublicPath: "https://pdp.amurotama.com/_next/static/images/",
     },
   ],
   {
-    basePath: "/project-pdp-cicd",
-    assetPrefix: "/project-pdp-cicd/",
+    assetPrefix: "https://pdp.amurotama.com/",
   },
 ]);

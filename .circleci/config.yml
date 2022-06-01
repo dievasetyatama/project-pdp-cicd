@@ -15,10 +15,30 @@ jobs:
       - run: yarn install && yarn build
       - run: echo "Test started on `date`"
       - run: yarn test
+      - persist_to_workspace:
+          root: public
+          paths:
+            - "*"
+  deploy:
+    docker:
+      - image: cimg/node:16.15.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: public
+      - add_ssh_keys:
+          fingerprints:
+            - "5f:15:50:42:8b:db:b8:e3:93:f4:1c:ad:d0:0b:c9:c3"
+      - deploy:
+          name: Deploy website
+          command: |
+            git config --global user.name "Dieva S"
+            git config --global user.email "dieva@fivejack.com"
+            sh deploy.sh
 workflows:
   build-branch-beta:
     jobs:
-      - need_approval:
+      - need-approval:
           type: approval
           filters:
             branches:
@@ -26,4 +46,7 @@ workflows:
                 - beta
       - build-and-test:
           requires:
-            - need_approval
+            - need-approval
+      - deploy:
+          requires:
+            - build-and-test
