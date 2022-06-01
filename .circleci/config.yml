@@ -15,26 +15,21 @@ jobs:
       - run: yarn install && yarn build
       - run: echo "Test started on `date`"
       - run: yarn test
-      - persist_to_workspace:
-          root: public
-          paths:
-            - "*"
   deploy:
     docker:
       - image: cimg/node:16.15.0
     steps:
       - checkout
-      - attach_workspace:
-          at: public
       - add_ssh_keys:
           fingerprints:
-            - "5f:15:50:42:8b:db:b8:e3:93:f4:1c:ad:d0:0b:c9:c3"
+            - "ad:41:49:c3:e5:ea:f9:a2:74:ac:dc:f7:1f:9f:8d:ae"
       - deploy:
-          name: Deploy website
+          name: Deploy next js app
           command: |
-            git config --global user.name "Dieva S"
+            git config --global user.name "dievasetyatama"
             git config --global user.email "dieva@fivejack.com"
-            sh deploy.sh
+      - run: echo "Deploy started on `date`"
+      - run: yarn deploy
 workflows:
   build-branch-beta:
     jobs:
