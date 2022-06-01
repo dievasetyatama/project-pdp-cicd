@@ -9,7 +9,7 @@
     "start": "next start",
     "test": "jest",
     "watch-server": "next",
-    "deploy": "gh-pages -b main -d out"
+    "deploy": "gh-pages -b main -d build"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
