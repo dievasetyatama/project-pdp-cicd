@@ -14,12 +14,6 @@ jobs:
       - run: echo "Build started on `date`"
       - run: yarn install && yarn build
       - run: echo "Test started on `date`"
-      - run: yarn test
-  deploy:
-    docker:
-      - image: cimg/node:16.15.0
-    steps:
-      - checkout
       - add_ssh_keys:
           fingerprints:
             - "ad:41:49:c3:e5:ea:f9:a2:74:ac:dc:f7:1f:9f:8d:ae"
@@ -39,9 +33,6 @@ workflows:
             branches:
               only:
                 - beta
-      - build-and-test:
+      - build-test-deploy:
           requires:
             - need-approval
-      - deploy:
-          requires:
-            - build-and-test
